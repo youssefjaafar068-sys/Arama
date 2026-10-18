@@ -2,7 +2,7 @@ import { Category, MenuItem, RestaurantInfo } from '../types';
 
 export const restaurantInfo: RestaurantInfo = {
   name: 'مطعم آراما',
-  tagline: 'مطعم راقٍ • مشويات ومأكولات متنوعة',
+  tagline: 'مشويات فحم في حفر الباطن',
   city: 'حفر الباطن',
   phone: '+966551014216',
   whatsapp: '966551014216',

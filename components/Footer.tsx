@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-slate-400 text-sm max-w-md leading-relaxed">
-              {restaurantInfo.tagline} في {restaurantInfo.city}. نقدم أشهى المشويات على الفحم والمأكولات الطازجة بمعايير عالمية تليق بذوقكم الرفيع.
+              {restaurantInfo.tagline} في {restaurantInfo.city}. لحم بلدي على الفحم، من 12 الظهر لين 1:30 بالليل.
             </p>
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Clock, MapPin, Phone, ArrowLeft, Navigation, Sparkles } from 'lucide-react';
+import { Star, Clock, MapPin, Phone, ArrowLeft, Navigation } from 'lucide-react';
 import { restaurantInfo } from '../data/mockData';
 
 interface HeroProps {
@@ -30,26 +30,25 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
                 {restaurantInfo.status}
               </span>
 
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
-                <Star className="w-3.5 h-3.5 fill-amber-400" />
-                <span>{restaurantInfo.rating} ({restaurantInfo.reviewCount.toLocaleString('ar-SA')} تقييم)</span>
+            <div className="inline-flex items-center gap-1.5 text-xs text-slate-300">
+                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                <span className="font-semibold text-white">{restaurantInfo.rating}</span>
+                <span className="text-slate-400">· {restaurantInfo.reviewCount.toLocaleString('ar-SA')} تقييم على قوقل</span>
               </div>
             </div>
 
             {/* Main Title */}
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 text-arama-400 font-semibold text-sm bg-arama-500/10 px-3 py-1 rounded-lg">
-                <Sparkles className="w-4 h-4" />
-                <span>{restaurantInfo.tagline}</span>
-              </div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
-                أهلاً بكم في <br />
+            <div className="mt-6">
+              <p className="text-arama-400 font-semibold text-sm">{restaurantInfo.tagline}</p>
+              <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.15] mt-2">
+                فحم والع، ولحم بلدي.
+                <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-arama-400 via-amber-200 to-arama-500">
-                  {restaurantInfo.name}
+                  هذا شغلنا.
                 </span>
               </h1>
-              <p className="text-slate-300 text-lg sm:text-xl font-light leading-relaxed max-w-2xl">
-                نقدم لكم أشهى المشويات على الفحم والمأكولات المتنوعة الطازجة في {restaurantInfo.city}. جودة لا تُضاهى ونكهات أصيلة تأسر الحواس.
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mt-4">
+                من 12 الظهر لين 1:30 بالليل. اطلب ويوصلك حار.
               </p>
             </div>
 
@@ -71,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
                 onClick={onViewMenu}
                 className="px-8 py-4 rounded-2xl bg-gradient-to-r from-arama-500 to-arama-600 text-white font-bold text-base hover:from-arama-600 hover:to-arama-700 shadow-xl shadow-arama-500/25 transition-all flex items-center gap-3 group active:scale-95"
               >
-                <span>استعرض قائمة الطعام</span>
+                <span>شوف المنيو واطلب الآن</span>
                 <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
               </button>
 
@@ -80,15 +79,15 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
                 className="px-6 py-4 rounded-2xl bg-slate-800/80 border border-slate-700 text-white font-semibold text-base hover:bg-slate-800 hover:border-slate-600 transition-all flex items-center gap-2"
               >
                 <Phone className="w-5 h-5 text-arama-400" />
-                <span>اتصل بالمطعم</span>
+                <span>اتصل واحجز طلبك</span>
               </a>
 
               <button
                 onClick={handleGetDirections}
-                className="px-6 py-4 rounded-2xl bg-slate-800/80 border border-slate-700 text-white font-semibold text-base hover:bg-slate-800 hover:border-slate-600 transition-all flex items-center gap-2"
+                className="text-slate-300 text-sm font-medium underline underline-offset-8 decoration-slate-600 hover:text-white hover:decoration-amber-400 transition-colors flex items-center gap-1.5 py-4"
               >
-                <Navigation className="w-5 h-5 text-amber-400" />
-                <span>الاتجاهات</span>
+                <Navigation className="w-4 h-4 text-amber-400" />
+                <span>وين مكاننا بالضبط؟</span>
               </button>
             </div>
 
@@ -109,11 +108,10 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
 
                 {/* Floating Highlight Badge */}
-                <div className="absolute bottom-6 right-6 left-6 bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-700/80 shadow-xl flex items-center justify-between">
+                <div className="absolute bottom-6 right-6 left-6 bg-slate-900/90 backdrop-blur-md px-5 py-4 rounded-2xl border border-slate-700/80 shadow-xl flex items-center justify-between gap-3">
                   <div>
-                    <span className="text-arama-400 text-xs font-bold uppercase tracking-wider">الطبق المميز</span>
-                    <h3 className="text-white font-bold text-lg mt-0.5">مشويات مشكلة آراما الفاخرة</h3>
-                    <p className="text-slate-400 text-xs mt-1">تشكيلة ألذ المشويات على الفحم الطازج</p>
+                    <p className="text-amber-400 text-xs font-bold">ينطلب كثير هالأسبوع</p>
+                    <h3 className="text-white font-bold text-base mt-1 leading-snug">مشكّل كيلو — يكفي 3 إلى 4 أشخاص</h3>
                   </div>
                   <div className="bg-arama-500 text-white font-black px-4 py-2.5 rounded-xl text-base shadow-md">
                     185 ر.س

@@ -10,7 +10,7 @@ const tajawal = Tajawal({
 
 export const metadata: Metadata = {
   title: 'مطعم آراما - Arama Restaurant | حفر الباطن',
-  description: 'موقع طلبات مطعم آراما في حفر الباطن - أشهى المشويات على الفحم والمأكولات المتنوعة',
+  description: 'اطلب من مطعم آراما في حفر الباطن — مشويات فحم ولحم بلدي، توصيل سريع لين 1:30 بالليل',
   keywords: 'مطعم آراما, حفر الباطن, مشويات, كباب, بينك باستا, منيو آراما, توصيل طلبات',
   verification: {
     google: '3klvr-X-BlRMM27Cu5XM8MlGeF53KDDhMi192RTngXM',

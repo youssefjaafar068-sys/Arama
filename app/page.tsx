@@ -74,12 +74,10 @@ export default function Home() {
           {/* Section Title & Search Bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-right w-full md:w-auto">
-              <span className="text-arama-600 font-bold text-sm bg-arama-100 px-3.5 py-1 rounded-xl">
-                قائمة الطعام الطازجة
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2">
-                اختر ما تُفضله من المنيو
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
+                المنيو
               </h2>
+              <p className="text-slate-500 text-sm mt-2">كل اللي تحت ينطبخ اليوم. اختر ودوس إضافة.</p>
             </div>
 
             {/* Search Input */}
