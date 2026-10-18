@@ -101,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
               
               <div className="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800">
                 <img
-                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
                   alt="مشويات آراما الفاخرة"
                   className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
                 />

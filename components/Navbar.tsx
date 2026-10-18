@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Menu as MenuIcon, X, Phone, UtensilsCrossed, Settings, Check } from 'lucide-react';
+import { ShoppingBag, Menu as MenuIcon, X, Phone, UtensilsCrossed, MapPin, Settings } from 'lucide-react';
 import { restaurantInfo } from '../data/mockData';
 
 interface NavbarProps {
@@ -7,6 +7,9 @@ interface NavbarProps {
   onOpenCart: () => void;
   activeSection: string;
   onNavigate: (sectionId: string) => void;
+  onOpenLocationCheck?: () => void;
+  customerDistrict?: string | null;
+  isInsideZone?: boolean | null;
   isAdminMode: boolean;
   onToggleAdminMode: () => void;
 }
@@ -16,6 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCart,
   activeSection,
   onNavigate,
+  onOpenLocationCheck,
+  customerDistrict,
+  isInsideZone,
   isAdminMode,
   onToggleAdminMode,
 }) => {
@@ -68,26 +74,42 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
           </nav>
 
-          {/* Action Buttons (Admin Toggle, Call & Cart) */}
-          <div className="flex items-center gap-3">
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2.5">
             
-            {/* Admin Image Upload Mode Toggle */}
+            {/* Admin Image Upload Mode Toggle Button */}
             <button
               onClick={onToggleAdminMode}
-              className={`hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-bold transition-all ${
+              className={`hidden sm:flex items-center gap-2 px-3.5 py-2.5 rounded-2xl border text-xs font-bold transition-all shadow-sm ${
                 isAdminMode
-                  ? 'bg-amber-500 border-amber-600 text-white shadow-md shadow-amber-500/30 animate-pulse'
+                  ? 'bg-amber-500 border-amber-600 text-white shadow-amber-500/30 animate-pulse'
                   : 'bg-white border-slate-200 text-slate-700 hover:border-arama-400 hover:text-arama-600'
               }`}
-              title="تفعيل وضع رفع صور الأطباق"
+              title="تفعيل وضع تعديل الصور بكلمة المرور"
             >
               <Settings className={`w-4 h-4 ${isAdminMode ? 'animate-spin' : ''}`} />
-              <span>{isAdminMode ? 'وضع تعديل الصور (مفعل)' : 'إدارة صور الأطباق'}</span>
+              <span>{isAdminMode ? 'وضع التعديل مفعل' : 'وضع التعديل'}</span>
             </button>
+
+            {onOpenLocationCheck && (
+              <button
+                onClick={onOpenLocationCheck}
+                className={`flex items-center gap-2 px-3.5 py-2.5 rounded-2xl border text-xs sm:text-sm font-bold transition-all shadow-sm ${
+                  customerDistrict
+                    ? isInsideZone
+                      ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
+                      : 'bg-amber-50 border-amber-300 text-amber-800'
+                    : 'bg-arama-50 border-arama-300 text-arama-700 hover:bg-arama-100'
+                }`}
+              >
+                <MapPin className="w-4 h-4 text-arama-600" />
+                <span>{customerDistrict ? `موقعك: ${customerDistrict}` : 'حدد موقعك'}</span>
+              </button>
+            )}
 
             <a
               href={`tel:${restaurantInfo.phone}`}
-              className="hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:border-arama-400 hover:text-arama-600 transition-colors text-sm font-medium"
+              className="hidden lg:flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:border-arama-400 hover:text-arama-600 transition-colors text-sm font-medium"
             >
               <Phone className="w-4 h-4 text-arama-500" />
               <span>اتصل بنا</span>
@@ -123,6 +145,19 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-xl py-6 px-6 animate-fadeIn">
           <nav className="flex flex-col gap-3">
+            {onOpenLocationCheck && (
+              <button
+                onClick={() => {
+                  onOpenLocationCheck();
+                  setMobileMenuOpen(false);
+                }}
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-arama-50 text-arama-800 border border-arama-200 font-bold text-sm shadow-sm"
+              >
+                <MapPin className="w-4 h-4 text-arama-600" />
+                <span>{customerDistrict ? `موقعك: ${customerDistrict}` : 'حدد موقعك للتحقق من التوصيل'}</span>
+              </button>
+            )}
+
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -136,18 +171,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {link.label}
               </button>
             ))}
-            <hr className="my-2 border-slate-100" />
+
             <button
-              onClick={onToggleAdminMode}
+              onClick={() => {
+                onToggleAdminMode();
+                setMobileMenuOpen(false);
+              }}
               className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm ${
-                isAdminMode
-                  ? 'bg-amber-500 text-white shadow-md'
-                  : 'bg-slate-100 text-slate-700'
+                isAdminMode ? 'bg-amber-500 text-white shadow-md' : 'bg-slate-100 text-slate-700'
               }`}
             >
               <Settings className="w-4 h-4" />
-              <span>{isAdminMode ? 'إلغاء وضع تعديل الصور' : 'إدارة صور الأطباق'}</span>
+              <span>{isAdminMode ? 'إلغاء وضع التعديل' : 'وضع التعديل (كلمة المرور)'}</span>
             </button>
+
+            <hr className="my-2 border-slate-100" />
             <a
               href={`tel:${restaurantInfo.phone}`}
               className="flex items-center justify-center gap-2 py-3 rounded-xl bg-arama-50 text-arama-700 font-semibold text-sm"

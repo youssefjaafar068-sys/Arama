@@ -9,103 +9,28 @@ import { CartDrawer } from '../components/CartDrawer';
 import { AboutSection } from '../components/AboutSection';
 import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
-import { categories, menuItems as initialMenuItems } from '../data/mockData';
-import { CartItem, MenuItem, OrderType } from '../types';
-import { Search, Utensils, Image as ImageIcon, CheckCircle2 } from 'lucide-react';
+import { categories } from '../data/mockData';
+import { Search, Utensils } from 'lucide-react';
+import { useAppStore } from '../lib/store';
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [orderType, setOrderType] = useState<OrderType>('delivery');
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
-  
-  // Admin Image Upload Mode State
-  const [isAdminMode, setIsAdminMode] = useState<boolean>(false);
-  const [menuItems, setMenuItems] = useState<MenuItem[]>(initialMenuItems);
-  const [successToast, setSuccessToast] = useState<string | null>(null);
 
-  // Load cart & custom menu images from localStorage on mount
+  // Zustand Store
+  const {
+    menuItems,
+    cartItems,
+    addToCart,
+  } = useAppStore();
+
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
-    const savedCart = localStorage.getItem('arama_cart');
-    if (savedCart) {
-      try {
-        setCartItems(JSON.parse(savedCart));
-      } catch (e) {
-        console.error('Failed to parse cart', e);
-      }
-    }
-
-    const savedMenu = localStorage.getItem('arama_custom_menu');
-    if (savedMenu) {
-      try {
-        setMenuItems(JSON.parse(savedMenu));
-      } catch (e) {
-        console.error('Failed to parse custom menu', e);
-      }
-    }
+    setIsMounted(true);
   }, []);
-
-  // Save cart to localStorage
-  useEffect(() => {
-    localStorage.setItem('arama_cart', JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  // Save custom menu to localStorage when updated
-  const handleUpdateItemImage = (itemId: string, newImage: string) => {
-    setMenuItems((prev) => {
-      const updated = prev.map((item) =>
-        item.id === itemId ? { ...item, image: newImage } : item
-      );
-      localStorage.setItem('arama_custom_menu', JSON.stringify(updated));
-      return updated;
-    });
-
-    setSuccessToast('تم تحديث صورة الطبق وحفظها بنجاح!');
-    setTimeout(() => setSuccessToast(null), 3000);
-  };
-
-  const handleAddToCart = (item: MenuItem) => {
-    setCartItems((prevItems) => {
-      const existingIndex = prevItems.findIndex((ci) => ci.item.id === item.id);
-      if (existingIndex > -1) {
-        const updated = [...prevItems];
-        updated[existingIndex].quantity += 1;
-        return updated;
-      } else {
-        return [...prevItems, { item, quantity: 1, notes: '' }];
-      }
-    });
-  };
-
-  const handleUpdateQuantity = (index: number, quantity: number) => {
-    if (quantity <= 0) {
-      handleRemoveItem(index);
-      return;
-    }
-    setCartItems((prev) => {
-      const updated = [...prev];
-      updated[index].quantity = quantity;
-      return updated;
-    });
-  };
-
-  const handleUpdateNotes = (index: number, notes: string) => {
-    setCartItems((prev) => {
-      const updated = [...prev];
-      updated[index].notes = notes;
-      return updated;
-    });
-  };
-
-  const handleRemoveItem = (index: number) => {
-    setCartItems((prev) => prev.filter((_, i) => i !== index));
-  };
-
-  const handleClearCart = () => {
-    setCartItems([]);
-  };
 
   const handleNavigate = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -124,7 +49,7 @@ export default function Home() {
     return matchesCategory && matchesSearch;
   });
 
-  const totalCartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalCartCount = isMounted ? cartItems.reduce((sum, item) => sum + item.quantity, 0) : 0;
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
@@ -135,34 +60,12 @@ export default function Home() {
         onOpenCart={() => setIsCartOpen(true)}
         activeSection={activeSection}
         onNavigate={handleNavigate}
-        isAdminMode={isAdminMode}
-        onToggleAdminMode={() => setIsAdminMode(!isAdminMode)}
+        isAdminMode={false} // Will be moved to admin dashboard
+        onToggleAdminMode={() => {}} 
       />
 
       {/* Hero Section */}
       <Hero onViewMenu={() => handleNavigate('menu')} />
-
-      {/* Success Toast Notification */}
-      {successToast && (
-        <div className="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-bounce-subtle">
-          <CheckCircle2 className="w-6 h-6" />
-          <span className="font-bold text-sm">{successToast}</span>
-        </div>
-      )}
-
-      {/* Admin Mode Banner */}
-      {isAdminMode && (
-        <div className="bg-amber-500 text-slate-950 py-3 px-4 text-center font-bold text-sm sticky top-20 z-30 shadow-md flex items-center justify-center gap-2">
-          <ImageIcon className="w-5 h-5" />
-          <span>وضع تعديل الصور مفعل حالياً: يمكنك النقر على زر "رفع صورة جديدة للطبق" على أي بطاقة لتغيير صورتها بصورة من جهازك مباشرة!</span>
-          <button
-            onClick={() => setIsAdminMode(false)}
-            className="mr-4 px-3 py-1 rounded-xl bg-slate-950 text-white text-xs hover:bg-slate-800"
-          >
-            إنهاء التعديل
-          </button>
-        </div>
-      )}
 
       {/* Main Menu Section */}
       <div id="menu" className="py-16 bg-slate-50 flex-grow">
@@ -225,9 +128,9 @@ export default function Home() {
                 <MenuCard
                   key={item.id}
                   item={item}
-                  onAddToCart={handleAddToCart}
-                  isAdminMode={isAdminMode}
-                  onUpdateImage={handleUpdateItemImage}
+                  onAddToCart={addToCart}
+                  isAdminMode={false} // Will be moved to admin dashboard
+                  onUpdateImage={() => {}}
                 />
               ))}
             </div>
@@ -249,13 +152,6 @@ export default function Home() {
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
-        cartItems={cartItems}
-        onUpdateQuantity={handleUpdateQuantity}
-        onUpdateNotes={handleUpdateNotes}
-        onRemoveItem={handleRemoveItem}
-        orderType={orderType}
-        onChangeOrderType={setOrderType}
-        onClearCart={handleClearCart}
       />
 
     </div>

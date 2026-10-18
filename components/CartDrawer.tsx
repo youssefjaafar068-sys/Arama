@@ -1,36 +1,39 @@
-import React, { useState } from 'react';
-import { X, Trash2, Plus, Minus, ShoppingBag, Send, MessageSquare, ArrowRight, Bike, Store } from 'lucide-react';
-import { CartItem, OrderType } from '../types';
+import React, { useState, useEffect } from 'react';
+import { X, Trash2, Plus, Minus, ShoppingBag, MessageSquare, Bike, Store, MapPin } from 'lucide-react';
 import { restaurantInfo } from '../data/mockData';
+import { useAppStore } from '../lib/store';
 
 interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  cartItems: CartItem[];
-  onUpdateQuantity: (index: number, quantity: number) => void;
-  onUpdateNotes: (index: number, notes: string) => void;
-  onRemoveItem: (index: number) => void;
-  orderType: OrderType;
-  onChangeOrderType: (type: OrderType) => void;
-  onClearCart: () => void;
 }
 
 export const CartDrawer: React.FC<CartDrawerProps> = ({
   isOpen,
   onClose,
-  cartItems,
-  onUpdateQuantity,
-  onUpdateNotes,
-  onRemoveItem,
-  orderType,
-  onChangeOrderType,
-  onClearCart,
 }) => {
-  const [customerName, setCustomerName] = useState('');
-  const [customerAddress, setCustomerAddress] = useState('');
-  const [customerPhone, setCustomerPhone] = useState('');
+  const {
+    cartItems,
+    orderType,
+    setOrderType,
+    updateQuantity,
+    updateNotes,
+    removeItem,
+    clearCart,
+    customerDistrict,
+    customerName,
+    customerPhone,
+    customerDetailedAddress,
+    setCustomerInfo
+  } = useAppStore();
 
-  if (!isOpen) return null;
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isOpen || !isMounted) return null;
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.item.price * item.quantity, 0);
   const deliveryFee = orderType === 'delivery' ? restaurantInfo.deliveryFee : 0;
@@ -41,11 +44,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
     let message = `🍽️ *طلب جديد من مطعم آراما (${restaurantInfo.city})*\n`;
     message += `━━━━━━━━━━━━━━━━━━━\n`;
-    message += `📌 *نوع الطلب:* ${orderType === 'delivery' ? '🚗 توصيل منزلي' : '🛍️ استلام من المطعم'}\n`;
+    message += `📌 *نوع الطلب:* ${orderType === 'delivery' ? '🚗 توصيل منزلي' : '🛍️ استلام من الفرع'}\n`;
     
     if (customerName) message += `👤 *الاسم:* ${customerName}\n`;
     if (customerPhone) message += `📞 *رقم الجوال:* ${customerPhone}\n`;
-    if (orderType === 'delivery' && customerAddress) message += `📍 *العنوان:* ${customerAddress}\n`;
+    
+    if (orderType === 'delivery') {
+      if (customerDistrict) message += `🏘️ *الحي (حفر الباطن):* ${customerDistrict}\n`;
+      if (customerDetailedAddress) message += `📍 *العنوان بالتفصيل:* ${customerDetailedAddress}\n`;
+    }
     
     message += `━━━━━━━━━━━━━━━━━━━\n`;
     message += `🛒 *تفاصيل الأصناف:*\n`;
@@ -107,7 +114,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => onChangeOrderType('delivery')}
+                onClick={() => setOrderType('delivery')}
                 className={`py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
                   orderType === 'delivery'
                     ? 'bg-arama-500 text-white shadow-lg shadow-arama-500/25'
@@ -120,7 +127,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
               <button
                 type="button"
-                onClick={() => onChangeOrderType('pickup')}
+                onClick={() => setOrderType('pickup')}
                 className={`py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
                   orderType === 'pickup'
                     ? 'bg-arama-500 text-white shadow-lg shadow-arama-500/25'
@@ -156,7 +163,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <span className="text-xs font-bold text-slate-500">الأصناف المختارة</span>
                   <button
-                    onClick={onClearCart}
+                    onClick={clearCart}
                     className="text-xs font-bold text-red-500 hover:text-red-700 flex items-center gap-1"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -174,7 +181,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         </span>
                       </div>
                       <button
-                        onClick={() => onRemoveItem(index)}
+                        onClick={() => removeItem(index)}
                         className="text-slate-400 hover:text-red-500 transition-colors p-1"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -185,7 +192,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     <div className="flex items-center justify-between pt-2 border-t border-slate-200/60">
                       <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-slate-200">
                         <button
-                          onClick={() => onUpdateQuantity(index, cartItem.quantity - 1)}
+                          onClick={() => updateQuantity(index, cartItem.quantity - 1)}
                           className="text-slate-600 hover:text-arama-600 font-bold"
                         >
                           <Minus className="w-3.5 h-3.5" />
@@ -194,7 +201,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           {cartItem.quantity}
                         </span>
                         <button
-                          onClick={() => onUpdateQuantity(index, cartItem.quantity + 1)}
+                          onClick={() => updateQuantity(index, cartItem.quantity + 1)}
                           className="text-slate-600 hover:text-arama-600 font-bold"
                         >
                           <Plus className="w-3.5 h-3.5" />
@@ -212,8 +219,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         type="text"
                         placeholder="ملاحظات خاصة (مثال: بدون بصل، زيادة صوص...)"
                         value={cartItem.notes || ''}
-                        onChange={(e) => onUpdateNotes(index, e.target.value)}
-                        className="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 text-slate-800 focus:outline-none focus:border-araba-500 focus:ring-1 focus:ring-arama-500"
+                        onChange={(e) => updateNotes(index, e.target.value)}
+                        className="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500 focus:ring-1 focus:ring-arama-500"
                       />
                     </div>
                   </div>
@@ -221,29 +228,48 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
                 {/* Customer Details Form */}
                 <div className="pt-4 space-y-3 border-t border-slate-100">
-                  <h4 className="font-bold text-slate-800 text-sm">بيانات العميل (لتسهيل الطلب):</h4>
+                  <h4 className="font-bold text-slate-800 text-sm">بيانات التوصيل والعميل:</h4>
+                  
                   <input
                     type="text"
-                    placeholder="الاسم الكريم"
+                    placeholder="الاسم الكريم *"
                     value={customerName}
-                    onChange={(e) => setCustomerName(e.target.value)}
+                    onChange={(e) => setCustomerInfo({ customerName: e.target.value })}
                     className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500"
                   />
+
                   <input
                     type="tel"
-                    placeholder="رقم الجوال (05xxxxxxxx)"
+                    placeholder="رقم الجوال (05xxxxxxxx) *"
                     value={customerPhone}
-                    onChange={(e) => setCustomerPhone(e.target.value)}
+                    onChange={(e) => setCustomerInfo({ customerPhone: e.target.value })}
                     className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500"
                   />
+
                   {orderType === 'delivery' && (
-                    <input
-                      type="text"
-                      placeholder="العنوان التفصيلي (السيح، حي العزيزية...)"
-                      value={customerAddress}
-                      onChange={(e) => setCustomerAddress(e.target.value)}
-                      className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500"
-                    />
+                    <>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-600 mb-1">الحي في حفر الباطن:</label>
+                        <input
+                          type="text"
+                          placeholder="اسم الحي (مثال: الخالدية، العزيزية...)"
+                          value={customerDistrict}
+                          onChange={(e) => setCustomerInfo({ customerDistrict: e.target.value })}
+                          className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-slate-600 mb-1">مكانك بالتفصيل (اسم الشارع، رقم المنزل، أقرب معلم):</label>
+                        <textarea
+                          rows={2}
+                          placeholder="اكتب تفاصيل الموقع بدقة هنا ليوصل السائق بسرعة..."
+                          value={customerDetailedAddress}
+                          onChange={(e) => setCustomerInfo({ customerDetailedAddress: e.target.value })}
+                          className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500 resize-none"
+                        ></textarea>
+                      </div>
+                    </>
                   )}
                 </div>
               </>
@@ -280,7 +306,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               </button>
 
               <p className="text-center text-xs text-slate-400">
-                سيتم تحويلك مباشرة لتأكيد الطلب عبر تطبيق واتساب مع تفاصيل طلبك الكاملة.
+                سيتم إرسال الحي، تفاصيل العنوان، ورقم الجوال مع كافة أصناف طلبك في رسالة واتساب جاهزة.
               </p>
             </div>
           )}
