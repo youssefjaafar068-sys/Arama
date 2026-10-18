@@ -6,6 +6,7 @@ export interface MenuItem {
   category: string;
   image: string;
   isPopular?: boolean;
+  badge?: string;
   calories?: number;
   preparationTime?: string;
 }

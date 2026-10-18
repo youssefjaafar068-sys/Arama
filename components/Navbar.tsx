@@ -77,15 +77,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Action Buttons */}
           <div className="flex items-center gap-2.5">
             
-            {/* Admin Image Upload Mode Toggle Button */}
+            {/* Admin Image Upload Mode Toggle Button — hidden from customers */}
             <button
               onClick={onToggleAdminMode}
-              className={`hidden sm:flex items-center gap-2 px-3.5 py-2.5 rounded-2xl border text-xs font-bold transition-all shadow-sm ${
+              className={`hidden items-center gap-2 px-3.5 py-2.5 rounded-2xl border text-xs font-bold transition-all shadow-sm ${
                 isAdminMode
                   ? 'bg-amber-500 border-amber-600 text-white shadow-amber-500/30 animate-pulse'
                   : 'bg-white border-slate-200 text-slate-700 hover:border-arama-400 hover:text-arama-600'
               }`}
               title="تفعيل وضع تعديل الصور بكلمة المرور"
+              style={{ display: 'none' }}
             >
               <Settings className={`w-4 h-4 ${isAdminMode ? 'animate-spin' : ''}`} />
               <span>{isAdminMode ? 'وضع التعديل مفعل' : 'وضع التعديل'}</span>
@@ -109,10 +110,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <a
               href={`tel:${restaurantInfo.phone}`}
-              className="hidden lg:flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:border-arama-400 hover:text-arama-600 transition-colors text-sm font-medium"
+              className="hidden lg:flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-colors text-sm font-bold"
             >
-              <Phone className="w-4 h-4 text-arama-500" />
-              <span>اتصل بنا</span>
+              <Phone className="w-4 h-4 text-arama-400" />
+              <span>دق واطلب</span>
             </a>
 
             {/* Shopping Cart Button with Badge */}
@@ -177,21 +178,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onToggleAdminMode();
                 setMobileMenuOpen(false);
               }}
-              className={`flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm ${
-                isAdminMode ? 'bg-amber-500 text-white shadow-md' : 'bg-slate-100 text-slate-700'
-              }`}
+              className="hidden items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-slate-100 text-slate-700"
+              style={{ display: 'none' }}
             >
               <Settings className="w-4 h-4" />
               <span>{isAdminMode ? 'إلغاء وضع التعديل' : 'وضع التعديل (كلمة المرور)'}</span>
             </button>
 
-            <hr className="my-2 border-slate-100" />
             <a
               href={`tel:${restaurantInfo.phone}`}
-              className="flex items-center justify-center gap-2 py-3 rounded-xl bg-arama-50 text-arama-700 font-semibold text-sm"
+              className="flex items-center justify-center gap-2 py-3 rounded-xl bg-arama-500 text-white font-bold text-sm shadow-md"
             >
               <Phone className="w-4 h-4" />
-              <span>اتصل بالمطعم ({restaurantInfo.phone})</span>
+              <span>دق علينا واطلب ({restaurantInfo.phone})</span>
             </a>
           </nav>
         </div>

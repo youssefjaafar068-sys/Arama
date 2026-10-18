@@ -102,6 +102,43 @@ export default function Home() {
             onSelectCategory={setActiveCategory}
           />
 
+          {/* Most ordered strip — breaks the grid monotony */}
+          {activeCategory === 'all' && !searchQuery && (() => {
+            const top = menuItems.filter((m) => m.badge === 'الأكثر مبيعاً').slice(0, 3);
+            if (top.length === 0) return null;
+            return (
+              <div className="bg-slate-900 rounded-3xl p-6 sm:p-7 text-white">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-amber-400 text-xs font-bold">الناس وش تطلب؟</p>
+                    <h3 className="text-xl font-black mt-1">الأكثر مبيعاً عندنا</h3>
+                  </div>
+                  <button
+                    onClick={() => setActiveCategory('grills')}
+                    className="text-xs font-bold text-slate-300 underline underline-offset-8 decoration-slate-600 hover:text-white shrink-0"
+                  >
+                    شوف المشويات
+                  </button>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
+                  {top.map((t) => (
+                    <button
+                      key={t.id}
+                      onClick={() => addToCart(t)}
+                      className="flex items-center gap-3 bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 rounded-2xl p-3 text-right transition-colors"
+                    >
+                      <img src={t.image} alt={t.name} className="w-14 h-14 rounded-xl object-cover shrink-0" loading="lazy" />
+                      <div className="min-w-0">
+                        <p className="font-bold text-sm truncate">{t.name}</p>
+                        <p className="text-amber-400 font-black text-sm mt-0.5">{t.price} ر.س <span className="text-slate-400 font-medium text-[11px]">· دوس للسلة</span></p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
           {/* Menu Items Grid */}
           {filteredItems.length === 0 ? (
             <div className="text-center py-24 bg-white rounded-3xl border border-slate-200/80 shadow-sm space-y-4">

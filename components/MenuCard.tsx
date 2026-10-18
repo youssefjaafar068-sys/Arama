@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItem } from '../types';
-import { Plus, Flame, Clock, Check, Upload, Link as LinkIcon } from 'lucide-react';
+import { Plus, Flame, Clock, Check, Upload, Link as LinkIcon, Bike } from 'lucide-react';
 
 interface MenuCardProps {
   item: MenuItem;
@@ -76,11 +76,10 @@ export const MenuCard: React.FC<MenuCardProps> = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
 
-        {/* Popular Badge */}
-        {item.isPopular && !isAdminMode && (
-          <span className="absolute top-4 right-4 bg-amber-500 text-white font-bold text-xs px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1">
-            <Flame className="w-3.5 h-3.5 fill-white" />
-            <span>الأكثر طلباً</span>
+        {/* Popular Badge — varied text per dish */}
+        {(item.badge || item.isPopular) && !isAdminMode && (
+          <span className="absolute top-4 right-4 bg-slate-900/90 backdrop-blur text-amber-400 font-bold text-[11px] px-3 py-1.5 rounded-full shadow-lg">
+            {item.badge || 'مطلوب'}
           </span>
         )}
 
@@ -162,18 +161,18 @@ export const MenuCard: React.FC<MenuCardProps> = ({
           </p>
         </div>
 
-        {/* Meta Info (Calories & Prep Time) */}
-        <div className="flex items-center gap-4 text-xs text-slate-400 pt-2 border-t border-slate-100">
-          {item.calories && (
-            <div className="flex items-center gap-1">
-              <Flame className="w-3.5 h-3.5 text-arama-400" />
-              <span>{item.calories} سعرة حرارية</span>
-            </div>
-          )}
+        {/* Meta Info (Prep Time only — calories moved to details) */}
+        <div className="flex items-center gap-2 text-xs text-slate-400 pt-2">
           {item.preparationTime && (
             <div className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-slate-400" />
-              <span>{item.preparationTime}</span>
+              <span>يجهز بـ{item.preparationTime}</span>
+            </div>
+          )}
+          {item.isPopular && (
+            <div className="flex items-center gap-1 text-arama-600 font-semibold">
+              <Flame className="w-3.5 h-3.5" />
+              <span>ينطلب كثير</span>
             </div>
           )}
         </div>
@@ -198,7 +197,7 @@ export const MenuCard: React.FC<MenuCardProps> = ({
           ) : (
             <>
               <Plus className="w-5 h-5" />
-              <span>إضافة إلى السلة</span>
+              <span>حطه في السلة</span>
             </>
           )}
         </button>
