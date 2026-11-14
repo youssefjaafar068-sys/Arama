@@ -1,0 +1,7 @@
+# Exclude the separate arama01 Vite project from Next.js build/deploy
+arama01/
+
+node_modules
+.next
+.env.local
+*.log
