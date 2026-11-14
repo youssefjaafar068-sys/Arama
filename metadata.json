@@ -1,0 +1,6 @@
+{
+  "name": "مطعم آراما · مشويات الفحم والفرن الحجري | Arama · Asador",
+  "description": "تجربة حية لمشويات الفحم العتيقة والفرن الحجري وأزادور الباسكي مع تحريك صور الطعام واستكشاف الموقع بخرائط الملاحة والتخطيط الطهوي للولائم.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
