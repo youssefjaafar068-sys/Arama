@@ -2,14 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Arama01 design system fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Amiri&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;700&family=Courier+Prime&display=swap');
+
 @layer base {
+  :root {
+    /* Arama01 color tokens */
+    --color-surface: #fff8f5;
+    --color-surface-dim: #e0d8d5;
+    --color-surface-container: #f4ece8;
+    --color-surface-container-high: #eee7e3;
+    --color-surface-container-highest: #e9e1dd;
+    --color-on-surface: #1e1b19;
+    --color-on-surface-variant: #57423d;
+    --color-primary: #7b210d;
+    --color-primary-container: #9b3822;
+    --color-secondary: #5b614d;
+    --color-tertiary: #00485d;
+    --color-outline: #8a726c;
+  }
+
   body {
-    @apply bg-slate-50 text-slate-800 antialiased selection:bg-arama-500 selection:text-white;
+    @apply bg-[#fff8f5] text-[#1e1b19] antialiased selection:bg-[#7b210d] selection:text-white;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: 'EB Garamond', 'Amiri', serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Playfair Display', 'Cairo', serif;
+  }
+
+  .font-editorial {
+    font-family: 'EB Garamond', 'Amiri', serif;
+  }
+
+  .font-ledger {
+    font-family: 'Courier Prime', monospace;
+  }
+
+  .font-arabic-heading {
+    font-family: 'Cairo', sans-serif;
   }
 }
 
-/* Custom scrollbar for horizontal category filter */
+/* Existing custom scrollbar for horizontal category filter */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -18,6 +54,7 @@
   scrollbar-width: none;
 }
 
+/* Existing subtle bounce */
 @keyframes bounce-subtle {
   0%, 100% {
     transform: translateY(0);
@@ -29,4 +66,24 @@
 
 .animate-bounce-subtle {
   animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Arama01 custom ember shimmer animations */
+@keyframes flame-pulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); filter: brightness(1); }
+  50% { opacity: 1; transform: scale(1.03); filter: brightness(1.2); }
+}
+
+@keyframes smoke-float {
+  0% { transform: translateY(0) scale(0.9); opacity: 0.4; }
+  50% { transform: translateY(-25px) scale(1.1); opacity: 0.7; }
+  100% { transform: translateY(-50px) scale(1.3); opacity: 0; }
+}
+
+.animate-flame {
+  animation: flame-pulse 3s ease-in-out infinite;
+}
+
+.animate-smoke {
+  animation: smoke-float 4s ease-out infinite;
 }

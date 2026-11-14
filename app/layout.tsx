@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl" className={tajawal.variable}>
-      <body className="font-sans bg-slate-50 text-slate-900 antialiased">
+      <body className="bg-[#fff8f5] text-[#1e1b19] antialiased">
         {children}
       </body>
     </html>
