@@ -1,0 +1,161 @@
+---
+name: Txotx & Hearth
+colors:
+  surface: '#fff8f5'
+  surface-dim: '#e0d8d5'
+  surface-bright: '#fff8f5'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#faf2ee'
+  surface-container: '#f4ece8'
+  surface-container-high: '#eee7e3'
+  surface-container-highest: '#e9e1dd'
+  on-surface: '#1e1b19'
+  on-surface-variant: '#57423d'
+  inverse-surface: '#33302d'
+  inverse-on-surface: '#f7efeb'
+  outline: '#8a726c'
+  outline-variant: '#dec0ba'
+  surface-tint: '#a23d27'
+  primary: '#7b210d'
+  on-primary: '#ffffff'
+  primary-container: '#9b3822'
+  on-primary-container: '#ffc1b4'
+  inverse-primary: '#ffb4a3'
+  secondary: '#5b614d'
+  on-secondary: '#ffffff'
+  secondary-container: '#dce2c9'
+  on-secondary-container: '#5f6551'
+  tertiary: '#00485d'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#00617c'
+  on-tertiary-container: '#94daf9'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#ffdad2'
+  primary-fixed-dim: '#ffb4a3'
+  on-primary-fixed: '#3d0600'
+  on-primary-fixed-variant: '#822612'
+  secondary-fixed: '#dfe5cc'
+  secondary-fixed-dim: '#c3c9b1'
+  on-secondary-fixed: '#181d0e'
+  on-secondary-fixed-variant: '#434937'
+  tertiary-fixed: '#bce9ff'
+  tertiary-fixed-dim: '#8ad0ef'
+  on-tertiary-fixed: '#001f2a'
+  on-tertiary-fixed-variant: '#004d63'
+  background: '#fff8f5'
+  on-background: '#1e1b19'
+  surface-variant: '#e9e1dd'
+typography:
+  display-xl:
+    fontFamily: Playfair Display
+    fontSize: 56px
+    fontWeight: '600'
+    lineHeight: 64px
+    letterSpacing: -0.02em
+  display-xl-mobile:
+    fontFamily: Playfair Display
+    fontSize: 38px
+    fontWeight: '600'
+    lineHeight: 44px
+    letterSpacing: -0.01em
+  headline-lg:
+    fontFamily: Playfair Display
+    fontSize: 40px
+    fontWeight: '500'
+    lineHeight: 48px
+    letterSpacing: -0.01em
+  headline-lg-mobile:
+    fontFamily: Playfair Display
+    fontSize: 28px
+    fontWeight: '500'
+    lineHeight: 36px
+    letterSpacing: 0em
+  headline-md:
+    fontFamily: Playfair Display
+    fontSize: 28px
+    fontWeight: '500'
+    lineHeight: 36px
+    letterSpacing: 0em
+  headline-sm:
+    fontFamily: Playfair Display
+    fontSize: 22px
+    fontWeight: '600'
+    lineHeight: 28px
+    letterSpacing: 0.01em
+  title-editorial:
+    fontFamily: EB Garamond
+    fontSize: 24px
+    fontWeight: '400'
+    lineHeight: 32px
+    letterSpacing: 0.02em
+  body-lg:
+    fontFamily: EB Garamond
+    fontSize: 19px
+    fontWeight: '400'
+    lineHeight: 28px
+    letterSpacing: 0.01em
+  body-md:
+    fontFamily: EB Garamond
+    fontSize: 17px
+    fontWeight: '400'
+    lineHeight: 26px
+    letterSpacing: 0em
+  body-sm:
+    fontFamily: EB Garamond
+    fontSize: 15px
+    fontWeight: '400'
+    lineHeight: 22px
+    letterSpacing: 0.01em
+  label-ledger:
+    fontFamily: Courier Prime
+    fontSize: 13px
+    fontWeight: '700'
+    lineHeight: 18px
+    letterSpacing: 0.08em
+  label-stamp:
+    fontFamily: Courier Prime
+    fontSize: 11px
+    fontWeight: '400'
+    lineHeight: 14px
+    letterSpacing: 0.12em
+  caption-mono:
+    fontFamily: Courier Prime
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+    letterSpacing: 0.04em
+spacing:
+  gutter: 1.5rem
+  gutter-desktop: 2.5rem
+  margin: 1.25rem
+  margin-desktop: 3.5rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.75rem
+  space-xl: 3rem
+---
+
+## Brand & Style
+
+This design system draws direct inspiration from the raw, elemental atmosphere of an artisanal Basque *sagardotegi* (ciderhouse) nestled into the foggy cliffs above the Bay of Biscay. The brand voice balances agricultural austerity with visceral warmthâ€”evoking hand-hewn oak barrels, sea mist settling on orchard moss, embers glowing under cast iron grills, and the sharp acidity of wild-fermented Basque cider poured from heights.
+
+The aesthetic philosophy is **Editorial Rustic Minimalism**:
+- **Tactile Paper Quality:** Surfaces echo coarse parchment, newsprint cellar menus, and hand-pressed botanical labels.
+- **Typographic Rigor:** Evoking traditional European print journalism, vintage wine ledgers, and bespoke bookbinding.
+- **Physical Restraint:** Absolute rejection of digital artificep %›Èœ›ÜİYÛ\ÜËŞ[]XÈÜ˜YY[ËÛİÈY™™XİËÜˆXÛÜ˜]]™H›ÜÚYİÜËˆš\İX[ÙZYÚ\È\Xİ[]Y\™[H›İYÚÜš\ÜZ\›[™H›Ü™\œË[šËY[œÚ]HÛÛ˜\İ[[[Û˜[\Ş[[Y]šXÈÚ]\ÜXÙK[™\ÙÜ˜\XÈØØ[K‚‚ˆÈÈÛÛÜœÂ‚•H[]H\È[™›Ü›YYH[[Y[[YÛY[È›İ[™[ˆÜ˜Ú\™˜\›Z[™ËÛÛÙÛÛX\İ[Û‹[™Ù[\šY\ÈÙˆ˜\œ™[YÚ[™Î‚‚‹H
+Š”š[X\HXØÙ[
+ÎPŒÎŒ˜8 %ÚY\ˆ\œÚ[[[ÛŠNŠŠˆHœZ\ÙY\›Û‹\šXÚ\İ™[Z[š\ØÙ[ÙˆŞY^™Y\H[›š[‹HÙ[\ˆİ[\Ë[™ÛİÚ[™ÈÛØ[Ëˆ™\Ù\™Y›Üˆš[X\HØ[ÈÈXİ[Û‹Xİ]™H[™XØ]ÜœËÙX\ÛÛ˜[\™\İ[\Ë[™Ù^H\˜Ú]Xİ\˜[]šY\œË‚‹H
+Š”ÙXÛÛ™\HÛ™H
+ÍLÍ8 %ÙX]\™YÛ]™HØYÙJNŠŠˆH]]YXÚ[HÜ™Y[ˆ˜]Ûˆœ›ÛH[\Ü˜Ú\™˜\šÈ[™ÙXHZ\İÛˆÛØ\İ[[ÚY\Ëˆ\ÙY›Üˆ›İ[šXØ[[››İ][ÛœËÙXÛÛ™\Hİ]\Ù\ËY]Y]H›YÜË[™ÙX\ÛÛ˜[Z\š[™ÜË‚‹H
+Š“™]]˜[ÛÜ™H
+ÌPÌNLMØ8 %Û[ÚÙYÚ\˜ÛØ[\›ÛŠNŠŠˆY\Ú\œ™YÛÛÙ›XÚËÛ[™ÈX^[][H[šÈÛÛ˜\İ›ÜˆXY[™\Ë›ÙHÛÜK[™Z\›[™HİXİ\˜[›Ü™\œË‚‹H
+Š‘Ü›İ[™›İ[™][Ûˆ
+ÑQ‘PX8 %Ø\›H\˜ÚY[[™[ŠNŠŠˆH[˜›XXÚYİXœİ˜]HXÜ›ÜÜÈ[Ø[˜\Èİ\™˜XÙ\ËÛÙ[š[™È^YHİ˜Z[ˆ[™[™[™ÈXİ[HØ\›]È™XY[™È^\šY[˜Ù\Ë‚‚ˆÈÈÈ\XØ][Ûˆ[\ÂŒKˆ™]™\ˆ\ÙH\™H›XÚÈ
+Ì
+HÜˆİ\šÈÜXØ[Ú]H
+Ñ‘‘‘‘‘˜
+K‚Œ‹ˆÛ˜[˜\šX][ÛœÈ]\İ™[XZ[ˆX\H[™Ü™Ø[šX(	FF§W7F–ær÷6—G’öbF†R6†&6öÂ—&öâ&F†W"F†â–çG&öGV6–ær6ööÂF–v—FÂw&—2à£2âW6WW'6–ÖÖöâ66VçG27&–ævÇ“²—BgVæ7F–öç22âVF—F÷&–Â7F×÷"6VÆÆ"Ö&²Âæ÷BFV6÷&F—fRv6‚à ¢22G—öw&‡ ¥F†RG—öw&†–2FVç6–öâ—'2F†R67VÇGW&ÂÂ†–v‚Ö6öçG&7BVÆVvæ6Röb¢¥Æ–f—"F—7Æ’¢¢v—F‚F†R‡VÖæ—7F–2v&×F‚öb¢¤T"v&ÖöæB¢¢æBF†R&vÖF–2Â–æGW7G&–Â6Æ–'&F–öâöb¢¤6÷W&–W"&–ÖR¢¢à ¢Ò¢¥Æ–f—"F—7Æ’¢¢6WG2F—FÆW2v—F‚Æ—FW&'’w&f—F2Â&VÖ–æ—66VçBöbf–çFvR&7VR7VÆ–æ'’Öæ–fW7F÷2æB&÷Fæ–6ÂföÆ–÷2à¢Ò¢¤T"v&ÖöæB¢¢†æFÆW2ÆöærÖf÷&Ò&÷6RÂF7F–æræ÷FW2ÂÖVçRFW67&—F–öç2ÂæBæ'&F—fR76vW2v—F‚6Æ&—G’æBG&F—F–öæÂ&öö¶—6‚&‡—F†Òà¢Ò¢¤6÷W&–W"&–ÖR¢¢6W'fW22â&6†—f—7Bw27F×¢&F6‚çVÖ&W'2Â&÷GFÆR–V'2ÂFV×W&GW&R&VF–æw2Â&–6–ærÂ6ö÷&F–æFW2ÂæBæf–vF–öâÖ&¶W'2â—B6–×VÆFW26VÆÆ"ÆVFvW"G—Ww&—F–æræB7W7Fö×2Öæ–fW7G2à ¤VF—F÷&–Â'VÆW3 ¢ÒÆÂÆ&VÂÖÆVFvW&æBÆ&VÂ×7F×Fö¶Vç26†÷VÆB&R&VæFW&VB–âWW&66Rà¢Ò&W6W'fRvVæW&÷W2Æ–æRÖ†V–v‡Böâ&öG’ÖÆvFò6–×VÆFRG&F—F–öæÂ'&öG6†VWB&VF–ærà ¢22Æ–÷WBb76–æp ¥F†RÆ–÷WB—2æ6†÷&VB–ââVF—F÷&–Â6öÇVÖâ7G'V7GW&RF†B&—f–ÆVvW27–ÖÖWG&–26–ærÂ–çFVçF–öæÂæVvF—fR76RÂæBF—66—Æ–æVBÆ–væÖVçB&VÖ–æ—66VçBöb&–çFVBv¦WGFW2à ¢222w&–Bb6ö×÷6—F–öà¢Ò¢¤FW6·F÷ƒ#G‚²“¢¢¢"Ö6öÇVÖâw&–Bv—F‚"ãW&VÒ†wWGFW"ÖFW6·F÷’wWGFW'2æBÖ–æ–×VÒ2ãW&VÒ†Ö&v–âÖFW6·F÷’6çf2Ö&v–ç2âÖ‚Æ–÷WB6öç7G&–çB6VBB3#†FòÖ–çF–â6öÖf÷'F&ÆRÖV7W&Rf÷"&VF–ærà¢Ò¢¥F&ÆWBƒsc‡‚Ò#7‚“¢¢¢‚Ö6öÇVÖâw&–Bv—F‚ãW&VÒwWGFW'2æB'&VÒ6–FRÖ&v–ç2à¢Ò¢¤Öö&–ÆRƒÃsc‡‚“¢¢¢BÖ6öÇVÖâw&–Bv—F‚&VÒwWGFW'2æBã#W&VÒ6–FRÖ&v–ç2à ¤6öçFVçBÆ–÷WB&VÆ–W2öâ6ÆVâ7G'V7GW&Â'VÆW3 ¢ÒF—f–FRÖ¦÷"F†VÖF–26V7F–öç2v—F‚f—6–&ÆR‚'VÆW27G–ÆVBv—F‚33“vB#RFòR÷6—G’Â&F†W"F†â&&—G&'’V×G’76Rà¢ÒÆÆ÷r'&öBÖ&v–ç2&÷VæBfVGW&VB6V6öæÂ&÷GFÆW2÷"vööBÖf—&VB7V6–ÇF–W2ÂÆWGF–ærF†Rv&×F‚öb4cDTdTgVæ7F–öâ2'&VF†–ær&ööÒà ¢22VÆWfF–öâbFWF€ ¥F†—2FW6–vâ7—7FVÒfö–G2ÆÂG&÷6†F÷w2Â7–çF†WF–2&ÇW'2ÂæBfÆöF–ær¢Ö†—2VÆWfF–öç2âFWF‚—2W&VÇ’Ææ"æBÖFW&–ÂÂ6öç7G'V7FVBf–  £â¢¤†—&Æ–æRFVÆ–Ö—FF–öã¢¢¢7W&f6W2æB6öçF–æW'2&RF—f–FVBW6–ær7&—7‚6öÆ–B—&öâ&÷&FW'2†33“vBRR÷6—G’f÷"6V6öæF'’F—f–FW'2ÂRf÷"¶W’g&Ö–ær’à£"â¢¤Æ–W&VB&6†ÖVçBf–VÆG3¢¢¢7F6¶–ær6&G2÷"6ÆÆ÷WG2W6W27V'FÆRW"fÇVR6†–gG2†RærâÂÆ6–ær4TSDD66öçF–æW"÷fW"F†R&6R4cDTdT’Â7&VF–ær‡—6–6Â6öÆÆvR÷"F—VBÖ–â&öö·ÆFRVffV7Bà£2â¢¤–æ²7F×–æs¢¢¢66VçB&FvW2ÂFw2ÂæB7F—fR7FFW2&W72&–çFò"F†R6çf2f–&öÆB6öÆ–B÷WFÆ–æW2æB–ç6WB&÷&FW'2Â–çfö¶–ær†÷Bv‚6VÇ2÷"–æ¶VBvööF&Æö6²&–çG2à£Bâ¢¤6†&6öÂw&÷VæF–æs¢¢¢ÖöFÂ÷fW&Æ—2W6R6öÆ–Bv6‚öb33“vBƒRR÷6—G’v—F‚â÷VR&6†ÖVçB6VçG&ÂÆ6&B÷WFÆ–æVB–â—&öâ&Æ6²à ¢226†W0 ¥F†R6†R7—7FVÒ—27G&–7FÇ’6†'†’âWfW'’6÷&æW"öâ'WGFöç2Â–çWBf–VÆG2Â6&G2Â&FvW2ÂæBÖöFÇ2FW&Ö–æFW2BâW†7B&–v‡BævÆRƒ‚&÷&FW"×&F—W2’â  ¥F†—2Wfö¶W2†æBÖwV–ÆÆ÷F–æVBW"Â&V7FæwVÆ"ÆVFvW"&V6V—G2Âö²7FfR¦ö–ç2ÂæBçF—VR6–FW"7&FW2â7W'fW2æB÷&væ–26ögFæW72&VÆöær6öÆVÇ’Fò†÷Föw&‡’Â†æBÖG&vâvööF7WBÖ&·2ÂæBF†RG—öw&‡’—G6VÆbà ¢226ö×öæVçG0 ¢222'WGFöç0¢Ò¢¥&–Ö'“¢¢¢6öÆ–B3”#3ƒ#&&6¶w&÷VæBÂ4cDTdTFW‡B–âÆ&VÂÖÆVFvW&â¦W&ò&÷&FW"&F—W2âFF–æs¢ãsW&VÒãsW&VÖâ†÷fW"7FFRG&ç6—F–öç2Fò33“và¢Ò¢¥6V6öæF'’ò÷WFÆ–æS¢¢¢&6¶w&÷VæBG&ç7&VçBÂ‚6öÆ–B33“vÂFW‡B–âÆ&VÂÖÆVFvW&†33“v’â†÷fW"7FFRf–ÆÇ2&6¶w&÷VæBv—F‚33“væB&WfW'6W2FW‡BFò4cDTdTà¢Ò¢¥FW'F–'’„ÆVFvW"Æ–æ²“¢¢¢FW‡B–âÆ&VÂ×7F×†3”#3ƒ#&’ÂVæFW&Æ–æVBv—F‚‚6öÆ–B6–FW"W'6–ÖÖöâ'VÆRöfg6WB'’G‚à ¢2226&G2bÖVçRföÆ–÷0¢ÒVæ6Æ÷6VBv—F‚‚6öÆ–B33“v†÷6—G’#R’&÷&FW"÷"ÆVgB÷Vâv—F‚öæÇ’F÷†—&Æ–æR'VÆRà¢ÒFF–ær–ç6–FR6&G3¢ãsW&VÖ†76RÖÆv’à¢Ò6V6öæÂ&FvR6—G2F÷×&–v‡B2âWW&66R7F×–âÆ&VÂ×7F×à ¢222f÷&Ò–çWG2b6VÆV7F÷'0¢Ò&6¶w&÷VæBG&ç7&VçBv—F‚‚&÷GFöÒ&÷&FW"–â33“v†&÷&FW"Ö&÷GFöÒöæÇ’’Â÷"&÷†VBv—F‚‚6öÆ–BW&–ÖWFW"à¢ÒG—öw&‡“¢6÷W&–W"&–ÖVW‚à¢Òfö7W27FFS¢&÷&FW"6öÆ÷"6†ævW2Fò3”#3ƒ#&v—F‚ãW‚7G&ö¶RvV–v‡C²æòvÆ÷r÷"÷WFÆ–æR&–ærà¢ÒÆ6V†öÆFW"FW‡B–â33“vBCR÷6—G’à ¢2226VÆV7F–öâ6öçG&öÇ2„6†V6¶&÷†W2b&F–÷2¢Ò¢¤6†V6¶&÷†W3¢¢¢gƒg‚7V&RÂ‚6öÆ–B33“vâv†Vâ6†V6¶VBÂf–ÆÆVBv—F‚3”#3ƒ#&æB6†'7&÷72÷"6öÆ–B–ææW"7V&Rà¢Ò¢¥&F–ò'WGFöç3¢¢¢gƒg‚6†'F–ÖöæBƒCRÖFVw&VR&÷FFVB7V&R’÷"7FæF&B6†'7V&Rv—F‚â–ææW"‡ƒ‡‚6öÆ–B6VçFW"à ¢2226VÆÆ"Fw2b7FGW26†—0¢Ò†V–v‡C¢#G‚Â–æÆ–æRÖfÆW‚Â¦W&ò&÷&FW"&F—W2à¢Ò&÷&FW#¢‚6öÆ–B3DCS3C†f÷"&÷Fæ–6Â÷f–çFvRFw2’÷"3”#3ƒ#&†f÷"Æ–Ö—FVB&W6W'fRò†'fW7BFw2’à¢ÒFF–æs¢ãW&VÒãg&VÖà¢ÒföçC¢Æ&VÂ×7F×–â6÷'&W7öæF–ær&÷&FW"6öÆ÷"à ¢222&W7ö¶RFöÖ–â6ö×öæVçG0¢Ò¢¥F7F–ær–æFW‚ÆVFvW#¢¢¢†÷&—¦öçFÂFF7G&—FWF–Æ–ær¤†'fW7B–V"¢Â¤&'&VÂ2¢Â¤'&—‚FVç6—G’¢ÂæB¤6–B&öf–ÆR¢ÂG—VB–â6F–öâÖÖöæöv—F‚F÷GFVBÆVFW'2†ââæ’6öææV7F–ær¶W—2FòfÇVW2à¢Ò¢¥G†÷G‚÷W"–æF–6F÷#¢¢¢fW'F–6ÂÖWFW"6†÷v–ær÷W&–ær7G&VÒ†V–v‡B&V6öÖÖVæFF–öç2Âg&ÖVB'’GVÂ†—&Æ–æR'VÆW2–â6†&6öÂ&Æ6²
