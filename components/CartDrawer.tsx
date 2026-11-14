@@ -82,27 +82,27 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity animate-fadeIn"
+        className="absolute inset-0 bg-[#1e1b19]/60 backdrop-blur-sm transition-opacity animate-fadeIn"
         onClick={onClose}
       ></div>
 
       <div className="absolute inset-y-0 left-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out">
+        <div className="w-screen max-w-md bg-[#fff8f5] shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out">
           
           {/* Drawer Header */}
-          <div className="p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+          <div className="p-6 bg-[#1e1b19] text-white flex items-center justify-between border-b border-[#57423d]">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-2xl bg-arama-500 text-white">
                 <ShoppingBag className="w-6 h-6" />
               </div>
               <div>
                 <h2 className="text-xl font-black">سلة الطلبات</h2>
-                <p className="text-xs text-slate-400 font-medium">{cartItems.length} أصناف في السلة</p>
+                <p className="text-xs text-[#dec0ba] font-medium">{cartItems.length} أصناف في السلة</p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="p-2 rounded-xl text-[#dec0ba] hover:text-white hover:bg-[#33302d] transition-colors"
             >
               <X className="w-6 h-6" />
             </button>
@@ -110,7 +110,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
           {/* Order Type Toggle */}
           <div className="p-4 bg-slate-50 border-b border-slate-200">
-            <label className="block text-xs font-bold text-slate-700 mb-2">اختر طريقة استلام الطلب:</label>
+            <label className="block text-xs font-bold text-[#57423d] mb-2">اختر طريقة استلام الطلب:</label>
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
@@ -118,7 +118,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 className={`py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
                   orderType === 'delivery'
                     ? 'bg-arama-500 text-white shadow-lg shadow-arama-500/25'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                    : 'bg-[#fff8f5] text-[#1e1b19] border border-[#dec0ba] hover:bg-[#f4ece8]'
                 }`}
               >
                 <Bike className="w-4 h-4" />
@@ -131,7 +131,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 className={`py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
                   orderType === 'pickup'
                     ? 'bg-arama-500 text-white shadow-lg shadow-arama-500/25'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                    : 'bg-[#fff8f5] text-[#1e1b19] border border-[#dec0ba] hover:bg-[#f4ece8]'
                 }`}
               >
                 <Store className="w-4 h-4" />
@@ -144,11 +144,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {cartItems.length === 0 ? (
               <div className="text-center py-20 space-y-4">
-                <div className="w-20 h-20 mx-auto rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+                <div className="w-20 h-20 mx-auto rounded-full bg-[#f4ece8] flex items-center justify-center text-[#8a726c]">
                   <ShoppingBag className="w-10 h-10" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800">سلة التسوق فارغة</h3>
-                <p className="text-sm text-slate-500 max-w-xs mx-auto">
+                <h3 className="text-lg font-bold text-[#1e1b19]">سلة التسوق فارغة</h3>
+                <p className="text-sm text-[#57423d] max-w-xs mx-auto">
                   لم تقم بإضافة أي أصناف إلى سلة التسوق بعد. تصفح المنيو واختر ما يُعجبك!
                 </p>
                 <button
@@ -160,7 +160,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               </div>
             ) : (
               <>
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                <div className="flex items-center justify-between pb-2 border-b border-[#dec0ba]">
                   <span className="text-xs font-bold text-slate-500">الأصناف المختارة</span>
                   <button
                     onClick={clearCart}
@@ -172,10 +172,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
 
                 {cartItems.map((cartItem, index) => (
-                  <div key={index} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+                  <div key={index} className="p-4 rounded-2xl bg-[#f4ece8] border border-[#dec0ba]/80 space-y-3">
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <h4 className="font-bold text-slate-900 text-base">{cartItem.item.name}</h4>
+                        <h4 className="font-bold text-[#1e1b19] text-base">{cartItem.item.name}</h4>
                         <span className="text-arama-600 font-black text-sm">
                           {cartItem.item.price * cartItem.quantity} ر.س
                         </span>
@@ -190,7 +190,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
                     {/* Quantity Controls */}
                     <div className="flex items-center justify-between pt-2 border-t border-slate-200/60">
-                      <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-xl border border-slate-200">
+                      <div className="flex items-center gap-3 bg-[#fff8f5] px-3 py-1.5 rounded-xl border border-[#dec0ba]">
                         <button
                           onClick={() => updateQuantity(index, cartItem.quantity - 1)}
                           className="text-slate-600 hover:text-arama-600 font-bold"
@@ -208,7 +208,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         </button>
                       </div>
 
-                      <span className="text-xs text-slate-500">
+                      <span className="text-xs text-[#57423d]">
                         {cartItem.item.price} ر.س / للقطعة
                       </span>
                     </div>
@@ -220,7 +220,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         placeholder="ملاحظات خاصة (مثال: بدون بصل، زيادة صوص...)"
                         value={cartItem.notes || ''}
                         onChange={(e) => updateNotes(index, e.target.value)}
-                        className="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500 focus:ring-1 focus:ring-arama-500"
+                        className="w-full px-3 py-2 text-xs rounded-xl bg-[#fff8f5] border border-[#dec0ba] text-[#1e1b19] focus:outline-none focus:border-[#7b210d] focus:ring-1 focus:ring-[#7b210d]"
                       />
                     </div>
                   </div>
@@ -228,14 +228,14 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
                 {/* Customer Details Form */}
                 <div className="pt-4 space-y-3 border-t border-slate-100">
-                  <h4 className="font-bold text-slate-800 text-sm">بيانات التوصيل والعميل:</h4>
+                  <h4 className="font-bold text-[#1e1b19] text-sm">بيانات التوصيل والعميل:</h4>
                   
                   <input
                     type="text"
                     placeholder="الاسم الكريم *"
                     value={customerName}
                     onChange={(e) => setCustomerInfo({ customerName: e.target.value })}
-                    className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500"
+                    className="w-full px-4 py-2.5 text-sm rounded-xl bg-[#f4ece8] border border-[#dec0ba] text-[#1e1b19] focus:outline-none focus:border-[#7b210d]"
                   />
 
                   <input
@@ -243,19 +243,19 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     placeholder="رقم الجوال (05xxxxxxxx) *"
                     value={customerPhone}
                     onChange={(e) => setCustomerInfo({ customerPhone: e.target.value })}
-                    className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500"
+                    className="w-full px-4 py-2.5 text-sm rounded-xl bg-[#f4ece8] border border-[#dec0ba] text-[#1e1b19] focus:outline-none focus:border-[#7b210d]"
                   />
 
                   {orderType === 'delivery' && (
                     <>
                       <div>
-                        <label className="block text-xs font-bold text-slate-600 mb-1">الحي في حفر الباطن:</label>
+                        <label className="block text-xs font-bold text-[#57423d] mb-1">الحي في حفر الباطن:</label>
                         <input
                           type="text"
                           placeholder="اسم الحي (مثال: الخالدية، العزيزية...)"
                           value={customerDistrict}
                           onChange={(e) => setCustomerInfo({ customerDistrict: e.target.value })}
-                          className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-800 focus:outline-none focus:border-arama-500"
+                          className="w-full px-4 py-2.5 text-sm rounded-xl bg-[#f4ece8] border border-[#dec0ba] text-[#1e1b19] focus:outline-none focus:border-[#7b210d]"
                         />
                       </div>
 
@@ -278,21 +278,21 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
           {/* Drawer Footer & Checkout */}
           {cartItems.length > 0 && (
-            <div className="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+            <div className="p-6 bg-[#f4ece8] border-t border-[#dec0ba] space-y-4">
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between text-slate-600">
+                <div className="flex justify-between text-[#57423d]">
                   <span>المجموع الفرعي:</span>
-                  <span className="font-bold text-slate-900">{subtotal} ر.س</span>
+                  <span className="font-bold text-[#1e1b19]">{subtotal} ر.س</span>
                 </div>
                 {orderType === 'delivery' && (
-                  <div className="flex justify-between text-slate-600">
+                  <div className="flex justify-between text-[#57423d]">
                     <span>رسوم التوصيل:</span>
-                    <span className="font-bold text-slate-900">{deliveryFee} ر.س</span>
+                    <span className="font-bold text-[#1e1b19]">{deliveryFee} ر.س</span>
                   </div>
                 )}
-                <div className="flex justify-between text-base font-black text-slate-900 pt-2 border-t border-slate-200">
+                <div className="flex justify-between text-base font-black text-[#1e1b19] pt-2 border-t border-[#dec0ba]">
                   <span>الإجمالي النهائي:</span>
-                  <span className="text-arama-600 text-xl">{grandTotal} ر.س</span>
+                  <span className="text-[#7b210d] text-xl">{grandTotal} ر.س</span>
                 </div>
               </div>
 
@@ -305,7 +305,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <span>إرسال الطلب عبر واتساب</span>
               </button>
 
-              <p className="text-center text-xs text-slate-400">
+              <p className="text-center text-xs text-[#57423d]">
                 سيتم إرسال الحي، تفاصيل العنوان، ورقم الجوال مع كافة أصناف طلبك في رسالة واتساب جاهزة.
               </p>
             </div>

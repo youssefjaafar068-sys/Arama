@@ -4,12 +4,12 @@ import { restaurantInfo } from '../data/mockData';
 
 export const ContactSection: React.FC = () => {
   return (
-    <section id="contact" className="py-20 bg-slate-900 text-white">
+    <section id="contact" className="py-20 bg-[#1e1b19] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-black">جوعان؟ هذا مكانك.</h2>
-          <p className="text-slate-400 text-sm mt-3">
+          <p className="text-[#dec0ba] text-sm mt-3">
             فرعنا واحد في {restaurantInfo.city} — {restaurantInfo.address}. دق علينا أو راسلنا واتساب، نجهز طلبك.
           </p>
         </div>
@@ -32,7 +32,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           <div className="md:col-span-7 space-y-5">
-            <div className="bg-slate-800/80 border border-slate-700/80 px-6 py-5 rounded-3xl flex items-center justify-between gap-4">
+            <div className="bg-[#33302d]/80 border border-[#57423d]/80 px-6 py-5 rounded-3xl flex items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                   <MessageSquare className="w-6 h-6" />
@@ -55,13 +55,13 @@ export const ContactSection: React.FC = () => {
             <div className="px-6 py-5 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 text-sm">
                 <MapPin className="w-5 h-5 text-amber-400 shrink-0" />
-                <span className="text-slate-300">{restaurantInfo.address}، {restaurantInfo.city}</span>
+                <span className="text-[#dec0ba]">{restaurantInfo.address}، {restaurantInfo.city}</span>
               </div>
               <a
                 href="https://maps.google.com/?q=Hafar+Al-Batin+Arama+Restaurant"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-slate-300 underline underline-offset-8 decoration-slate-600 hover:text-white hover:decoration-amber-400 transition-colors shrink-0"
+                className="inline-flex items-center gap-1.5 text-sm text-[#dec0ba] underline underline-offset-8 decoration-[#8a726c] hover:text-white hover:decoration-[#ffb4a3] transition-colors shrink-0"
               >
                 <Navigation className="w-4 h-4 text-amber-400" />
                 <span>افتح الموقع في قوقل ماب</span>

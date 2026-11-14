@@ -29,7 +29,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   };
 
   return (
-    <div className="sticky top-20 z-30 bg-slate-50/90 backdrop-blur-md py-4 border-b border-slate-200/80 shadow-sm transition-all">
+    <div className="sticky top-20 z-30 bg-[#fff8f5]/90 backdrop-blur-md py-4 border-b border-[#dec0ba] shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
           {categories.map((category) => {
@@ -41,10 +41,10 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
                 className={`flex items-center gap-2.5 px-6 py-3 rounded-2xl font-bold text-sm whitespace-nowrap transition-all duration-200 shadow-sm ${
                   isActive
                     ? 'bg-arama-500 text-white shadow-lg shadow-arama-500/30 scale-105'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80 hover:border-slate-300'
+                    : 'bg-[#fff8f5] text-[#1e1b19] hover:bg-[#f4ece8] border border-[#dec0ba] hover:border-[#7b210d]'
                 }`}
               >
-                <span className={isActive ? 'text-white' : 'text-arama-500'}>
+                <span className={isActive ? 'text-white' : 'text-[#7b210d]'}>
                   {getIcon(category.iconName)}
                 </span>
                 <span>{category.name}</span>

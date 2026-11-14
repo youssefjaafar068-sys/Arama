@@ -40,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
+    <header className="sticky top-0 z-40 bg-[#fff8f5]/95 backdrop-blur-md border-b border-[#dec0ba] shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
@@ -50,15 +50,15 @@ export const Navbar: React.FC<NavbarProps> = ({
               <UtensilsCrossed className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-2xl font-black text-slate-900 tracking-tight">
-                آراما <span className="text-arama-500 font-light text-xl">| Arama</span>
+              <span className="text-2xl font-black text-[#1e1b19] tracking-tight">
+                آراما <span className="text-[#7b210d] font-light text-xl">| Arama</span>
               </span>
-              <p className="text-xs text-slate-500 font-medium">{restaurantInfo.city} • مشويات ومأكولات</p>
+              <p className="text-xs text-[#57423d] font-medium">{restaurantInfo.city} • مشويات ومأكولات</p>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/60">
+          <nav className="hidden md:flex items-center gap-1 bg-[#f4ece8] p-1.5 rounded-full border border-[#dec0ba]">
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                   activeSection === link.id
                     ? 'bg-arama-500 text-white shadow-md shadow-arama-500/25'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
+                    : 'text-[#57423d] hover:text-[#1e1b19] hover:bg-[#fff8f5]'
                 }`}
               >
                 {link.label}
@@ -83,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`hidden items-center gap-2 px-3.5 py-2.5 rounded-2xl border text-xs font-bold transition-all shadow-sm ${
                 isAdminMode
                   ? 'bg-amber-500 border-amber-600 text-white shadow-amber-500/30 animate-pulse'
-                  : 'bg-white border-slate-200 text-slate-700 hover:border-arama-400 hover:text-arama-600'
+                  : 'bg-[#fff8f5] border-[#dec0ba] text-[#57423d] hover:border-[#7b210d] hover:text-[#7b210d]'
               }`}
               title="تفعيل وضع تعديل الصور بكلمة المرور"
               style={{ display: 'none' }}
@@ -110,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <a
               href={`tel:${restaurantInfo.phone}`}
-              className="hidden lg:flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-colors text-sm font-bold"
+              className="hidden lg:flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-[#1e1b19] text-white hover:bg-[#33302d] transition-colors text-sm font-bold"
             >
               <Phone className="w-4 h-4 text-arama-400" />
               <span>دق واطلب</span>
@@ -124,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ShoppingBag className="w-6 h-6 transition-transform group-hover:scale-110" />
               {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-slate-900 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center border-2 border-white shadow-md animate-bounce-subtle">
+                <span className="absolute -top-1.5 -right-1.5 bg-[#1e1b19] text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center border-2 border-white shadow-md animate-bounce-subtle">
                   {cartCount}
                 </span>
               )}
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100"
+              className="md:hidden p-2.5 rounded-xl border border-[#dec0ba] text-[#57423d] hover:bg-[#f4ece8]"
               aria-label="القائمة"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
@@ -144,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-xl py-6 px-6 animate-fadeIn">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[#fff8f5] border-b border-[#dec0ba] shadow-xl py-6 px-6 animate-fadeIn">
           <nav className="flex flex-col gap-3">
             {onOpenLocationCheck && (
               <button
@@ -166,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`text-right px-4 py-3 rounded-xl text-base font-semibold transition-all ${
                   activeSection === link.id
                     ? 'bg-arama-500 text-white shadow-md shadow-arama-500/25'
-                    : 'text-slate-700 hover:bg-slate-50'
+                    : 'text-[#1e1b19] hover:bg-[#f4ece8]'
                 }`}
               >
                 {link.label}
@@ -178,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onToggleAdminMode();
                 setMobileMenuOpen(false);
               }}
-              className="hidden items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-slate-100 text-slate-700"
+              className="hidden items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-[#f4ece8] text-[#57423d]"
               style={{ display: 'none' }}
             >
               <Settings className="w-4 h-4" />

@@ -4,7 +4,7 @@ import { restaurantInfo } from '../data/mockData';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-[#fff8f5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -43,15 +43,15 @@ export const AboutSection: React.FC = () => {
               <span>من 2019 وحنا على الفحم</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-[#1e1b19] leading-tight">
               نعرف وش نطبخ. ونطبخه زين.
             </h2>
 
-            <p className="text-slate-600 text-base leading-relaxed">
-              <strong className="text-slate-900 font-bold">آراما</strong> في {restaurantInfo.city}: لحم بلدي يوصلنا طازج كل صباح، يتبل بخلطتنا، وينشوى على الفحم قدامك. بدون فلسفة زايدة.
+            <p className="text-[#57423d] text-base leading-relaxed">
+              <strong className="text-[#1e1b19] font-bold">آراما</strong> في {restaurantInfo.city}: لحم بلدي يوصلنا طازج كل صباح، يتبل بخلطتنا، وينشوى على الفحم قدامك. بدون فلسفة زايدة.
             </p>
 
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-[#8a726c] text-sm leading-relaxed">
               تبي عشاء عائلي؟ المشكّل الكيلو يكفيكم. تبي شيء خفيف؟ المقبلات عندنا تنعمل يوم بيوم.
             </p>
 
@@ -61,15 +61,15 @@ export const AboutSection: React.FC = () => {
                 <div className="p-2 rounded-lg bg-arama-500 text-white shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
-                <p className="text-slate-700 text-sm font-semibold">لحم بلدي طازج — يوصلنا كل صباح، ما نجمّد.</p>
+                <p className="text-[#1e1b19] text-sm font-semibold">لحم بلدي طازج — يوصلنا كل صباح، ما نجمّد.</p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-900 text-white">
+              <div className="p-4 rounded-2xl bg-[#1e1b19] text-white">
                 <div className="flex items-center gap-2">
                   <Heart className="w-4 h-4 text-arama-400" />
                   <h3 className="font-bold text-sm">خلطة آراما</h3>
                 </div>
-                <p className="text-slate-300 text-xs mt-1.5 leading-relaxed">تتبيلة وحدة من 2019 ما غيرناها. اللي ذاقها يعرفها.</p>
+                <p className="text-[#dec0ba] text-xs mt-1.5 leading-relaxed">تتبيلة وحدة من 2019 ما غيرناها. اللي ذاقها يعرفها.</p>
               </div>
             </div>
 

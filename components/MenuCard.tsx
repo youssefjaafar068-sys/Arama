@@ -63,10 +63,10 @@ export const MenuCard: React.FC<MenuCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+    <div className="bg-[#fff8f5] rounded-3xl border border-[#dec0ba] shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col group">
       
       {/* Image Container */}
-      <div className="relative h-52 overflow-hidden bg-slate-100">
+      <div className="relative h-52 overflow-hidden bg-[#f4ece8]">
         <img
           src={imgSrc}
           alt={item.name}
@@ -74,18 +74,18 @@ export const MenuCard: React.FC<MenuCardProps> = ({
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1b19]/60 via-transparent to-transparent"></div>
 
         {/* Popular Badge — varied text per dish */}
         {(item.badge || item.isPopular) && !isAdminMode && (
-          <span className="absolute top-4 right-4 bg-slate-900/90 backdrop-blur text-amber-400 font-bold text-[11px] px-3 py-1.5 rounded-full shadow-lg">
+          <span className="absolute top-4 right-4 bg-[#1e1b19]/90 backdrop-blur text-[#ffb4a3] font-bold text-[11px] px-3 py-1.5 rounded-full shadow-lg">
             {item.badge || 'مطلوب'}
           </span>
         )}
 
         {/* Admin Image Upload / URL Overlay */}
         {isAdminMode ? (
-          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center p-3 text-center z-20 space-y-2">
+          <div className="absolute inset-0 bg-[#1e1b19]/80 backdrop-blur-md flex flex-col items-center justify-center p-3 text-center z-20 space-y-2">
             {!showUrlInput ? (
               <>
                 <label className="cursor-pointer bg-arama-500 hover:bg-arama-600 text-white px-3.5 py-2 rounded-xl font-bold text-xs flex items-center gap-1.5 shadow-lg transition-all active:scale-95 w-full justify-center">
@@ -102,7 +102,7 @@ export const MenuCard: React.FC<MenuCardProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowUrlInput(true)}
-                  className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl font-bold text-xs flex items-center gap-1.5 shadow-lg transition-all w-full justify-center"
+                  className="bg-[#1e1b19] hover:bg-[#33302d] text-[#dec0ba] px-3.5 py-2 rounded-xl font-bold text-xs flex items-center gap-1.5 shadow-lg transition-all w-full justify-center"
                 >
                   <LinkIcon className="w-4 h-4 text-amber-400" />
                   <span>أو لصق رابط صورة (URL)</span>
@@ -138,9 +138,9 @@ export const MenuCard: React.FC<MenuCardProps> = ({
           </div>
         ) : (
           /* Price Tag in Image Corner */
-          <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-white/20">
-            <span className="text-arama-600 font-black text-lg">
-              {item.price} <span className="text-xs font-bold text-slate-600">ر.س</span>
+          <div className="absolute bottom-4 right-4 bg-[#fff8f5]/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-lg border border-white/20">
+            <span className="text-[#7b210d] font-black text-lg">
+              {item.price} <span className="text-xs font-bold text-[#57423d]">ر.س</span>
             </span>
           </div>
         )}
@@ -151,21 +151,21 @@ export const MenuCard: React.FC<MenuCardProps> = ({
         
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-black text-slate-900 group-hover:text-arama-600 transition-colors">
+            <h3 className="text-xl font-black text-[#1e1b19] group-hover:text-[#7b210d] transition-colors">
               {item.name}
             </h3>
           </div>
 
-          <p className="text-slate-600 text-sm line-clamp-2 leading-relaxed font-light">
+          <p className="text-[#57423d] text-sm line-clamp-2 leading-relaxed font-light">
             {item.description}
           </p>
         </div>
 
         {/* Meta Info (Prep Time only — calories moved to details) */}
-        <div className="flex items-center gap-2 text-xs text-slate-400 pt-2">
+        <div className="flex items-center gap-2 text-xs text-[#8a726c] pt-2">
           {item.preparationTime && (
             <div className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
+              <Clock className="w-3.5 h-3.5 text-[#8a726c]" />
               <span>يجهز بـ{item.preparationTime}</span>
             </div>
           )}
@@ -183,9 +183,9 @@ export const MenuCard: React.FC<MenuCardProps> = ({
           disabled={isAdminMode}
           className={`w-full py-3.5 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 ${
             isAdminMode
-              ? 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'
+              ? 'bg-[#f4ece8] text-[#8a726c] cursor-not-allowed shadow-none'
               : added
-              ? 'bg-emerald-600 text-white shadow-emerald-600/30'
+              ? 'bg-[#5b614d] text-white shadow-[#5b614d]/30'
               : 'bg-arama-500 hover:bg-arama-600 text-white shadow-arama-500/25'
           }`}
         >

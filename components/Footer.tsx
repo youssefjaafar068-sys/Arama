@@ -4,7 +4,7 @@ import { restaurantInfo } from '../data/mockData';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+    <footer className="bg-[#1e1b19] text-[#dec0ba] py-16 border-t border-[#57423d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-slate-900">
           
@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
                 آراما <span className="text-arama-500 font-light text-lg">| Arama</span>
               </span>
             </div>
-            <p className="text-slate-400 text-sm max-w-md leading-relaxed">
+            <p className="text-[#dec0ba] text-sm max-w-md leading-relaxed">
               {restaurantInfo.tagline} في {restaurantInfo.city}. لحم بلدي على الفحم، من 12 الظهر لين 1:30 بالليل.
             </p>
           </div>
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
               <Clock className="w-4 h-4 text-arama-400" />
               <span>{restaurantInfo.hours}</span>
             </div>
-            <p className="text-xs text-slate-500">طوال أيام الأسبوع لخدمتكم</p>
+            <p className="text-xs text-[#8a726c]">طوال أيام الأسبوع لخدمتكم</p>
           </div>
 
           {/* Contact Col */}
@@ -49,10 +49,10 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8a726c]">
           <p>© {new Date().getFullYear()} {restaurantInfo.name} ({restaurantInfo.city}). جميع الحقوق محفوظة.</p>
           <p className="flex items-center gap-1">
-            صُمم بِكل <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> لتقديم تجربة طعام راقية
+            صُمم بِكل <Heart className="w-3.5 h-3.5 text-[#7b210d] fill-[#7b210d]" /> لتقديم تجربة طعام راقية
           </p>
         </div>
 

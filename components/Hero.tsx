@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
   };
 
   return (
-    <section id="hero" className="relative bg-gradient-to-b from-slate-900 via-slate-900 to-arama-950 text-white overflow-hidden py-20 lg:py-28">
+    <section id="hero" className="relative bg-gradient-to-b from-[#1e1b19] via-[#1e1b19] to-[#70311d] text-white overflow-hidden py-20 lg:py-28">
       {/* Background Decorative Glows */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-arama-600/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -25,15 +25,15 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
             
             {/* Status & Rating Badges */}
             <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#7b210d]/10 border border-[#7b210d]/30 text-[#ffb4a3] text-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-[#ffb4a3] animate-pulse"></span>
                 {restaurantInfo.status}
               </span>
 
-            <div className="inline-flex items-center gap-1.5 text-xs text-slate-300">
-                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+            <div className="inline-flex items-center gap-1.5 text-xs text-[#dec0ba]">
+                <Star className="w-3.5 h-3.5 fill-[#ffb4a3] text-[#ffb4a3]" />
                 <span className="font-semibold text-white">{restaurantInfo.rating}</span>
-                <span className="text-slate-400">· {restaurantInfo.reviewCount.toLocaleString('ar-SA')} تقييم على قوقل</span>
+                <span className="text-[#dec0ba]">· {restaurantInfo.reviewCount.toLocaleString('ar-SA')} تقييم على قوقل</span>
               </div>
             </div>
 
@@ -47,13 +47,13 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
                   هذا شغلنا.
                 </span>
               </h1>
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mt-4">
+              <p className="text-[#dec0ba] text-base sm:text-lg leading-relaxed max-w-xl mt-4">
                 من 12 الظهر لين 1:30 بالليل. اطلب ويوصلك حار.
               </p>
             </div>
 
             {/* Working Hours & Address */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-slate-300 pt-2">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-[#dec0ba] pt-2">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-arama-400" />
                 <span>{restaurantInfo.hours}</span>
@@ -76,17 +76,17 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
 
               <a
                 href={`tel:${restaurantInfo.phone}`}
-                className="px-6 py-4 rounded-2xl bg-slate-800/80 border border-slate-700 text-white font-semibold text-base hover:bg-slate-800 hover:border-slate-600 transition-all flex items-center gap-2"
+                className="px-6 py-4 rounded-2xl bg-[#33302d]/80 border border-[#57423d] text-white font-semibold text-base hover:bg-[#33302d] hover:border-[#7b210d] transition-all flex items-center gap-2"
               >
-                <Phone className="w-5 h-5 text-arama-400" />
+                <Phone className="w-5 h-5 text-[#ffb4a3]" />
                 <span>اتصل واحجز طلبك</span>
               </a>
 
               <button
                 onClick={handleGetDirections}
-                className="text-slate-300 text-sm font-medium underline underline-offset-8 decoration-slate-600 hover:text-white hover:decoration-amber-400 transition-colors flex items-center gap-1.5 py-4"
+                className="text-[#dec0ba] text-sm font-medium underline underline-offset-8 decoration-[#8a726c] hover:text-white hover:decoration-[#ffb4a3] transition-colors flex items-center gap-1.5 py-4"
               >
-                <Navigation className="w-4 h-4 text-amber-400" />
+                <Navigation className="w-4 h-4 text-[#ffb4a3]" />
                 <span>وين مكاننا بالضبط؟</span>
               </button>
             </div>
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="absolute -inset-1.5 bg-gradient-to-r from-arama-500 to-amber-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
               
-              <div className="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800">
+              <div className="relative rounded-3xl overflow-hidden border border-[#57423d] shadow-2xl bg-[#1e1b19]">
                 <img
                   src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
                   alt="مشويات آراما الفاخرة"
@@ -108,9 +108,9 @@ export const Hero: React.FC<HeroProps> = ({ onViewMenu }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
 
                 {/* Floating Highlight Badge */}
-                <div className="absolute bottom-6 right-6 left-6 bg-slate-900/90 backdrop-blur-md px-5 py-4 rounded-2xl border border-slate-700/80 shadow-xl flex items-center justify-between gap-3">
+                <div className="absolute bottom-6 right-6 left-6 bg-[#1e1b19]/90 backdrop-blur-md px-5 py-4 rounded-2xl border border-[#57423d]/80 shadow-xl flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-amber-400 text-xs font-bold">ينطلب كثير هالأسبوع</p>
+                    <p className="text-[#ffb4a3] text-xs font-bold">ينطلب كثير هالأسبوع</p>
                     <h3 className="text-white font-bold text-base mt-1 leading-snug">مشكّل كيلو — يكفي 3 إلى 4 أشخاص</h3>
                   </div>
                   <div className="bg-arama-500 text-white font-black px-4 py-2.5 rounded-xl text-base shadow-md">
